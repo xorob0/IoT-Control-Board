@@ -25,20 +25,20 @@ USE `projet`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `category`
+-- Structure de la table `categories`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Contenu de la table `category`
+-- Contenu de la table `categories`
 --
 
-INSERT INTO `category` (`id`, `type`) VALUES
+INSERT INTO `categories` (`id`, `type`) VALUES
 (1, 'lightning'),
 (2, 'lock'),
 (3, 'light_sensor'),
@@ -62,13 +62,13 @@ CREATE TABLE IF NOT EXISTS `locations` (
 -- Contenu de la table `locations`
 --
 
-INSERT INTO `locations` (`id`, `type`) VALUES
-(1, 'Bathroom'),
-(2, 'Living room'),
-(3, 'Outside'),
-(4, 'Bedroom Tim'),
-(5, 'Bedroom Parents'),
-(6, 'Other');
+INSERT INTO `locations` (`id`, `location`) VALUES
+(11, 'Bathroom'),
+(12, 'Living room'),
+(13, 'Outside'),
+(14, 'Bedroom Tim'),
+(15, 'Bedroom Parents'),
+(16, 'Other');
 -- --------------------------------------------------------
 
 --
@@ -79,27 +79,32 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `owner` varchar(50) NOT NULL,
-  `type` int(5) NOT NULL,
-  FOREIGN KEY (category)
-    REFERENCES category(id),
-  FOREIGN KEY (location)
-    REFERENCES location(id),
+  `category` int(5) NOT NULL,
+  `location` varchar(20) NOT NULL,
   `description` varchar(400) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY fk_cat(category)
+  REFERENCES categories(id)
+  ON UPDATE CASCADE
+  ON DELETE RESTRICT,
+  FOREIGN KEY fk_loc(location)
+  REFERENCES locations(id)
+  ON UPDATE CASCADE
+  ON DELETE RESTRICT
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Contenu de la table `objects`
 --
 
-INSERT INTO `objects` (`id`, `name`, `owner`, `type`, `location`, `description`) VALUES
-(7, 'Lampe salon', 'tim', 1, 2, 'Grand lampadaire du salon'),
-(8, 'Lampe salle de bain', 'tim', 1, 1, 'Lampe principale de la salle de bain'),
-(9, 'Verrou chambre Tim', 'tim', 2, 1, 'Verrou de la salle de bain'),
-(10, 'Verrou porte entrée', 'tim', 2, 2,'Verrou de la porte d\'entrée'),
-(11, 'Capteur luminosité extérieur 1', 'tim', 3, 3, 'Capteur de luminosité placé sur la terasse'),
-(12, 'Capteur luminosité extérieur 2', 'tim', 3, 3, 'Capteur de luminosité placé sur la facade'),
-(13, 'Capteur température extérieure', 'tim', 5, 3, 'Capteur de température placé sur la terasse'),
+INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`) VALUES
+(21, 'Lampe salon', 'tim', 1, 2, 'Grand lampadaire du salon'),
+(22, 'Lampe salle de bain', 'tim', 1, 1, 'Lampe principale de la salle de bain'),
+(23, 'Verrou chambre Tim', 'tim', 2, 1, 'Verrou de la salle de bain'),
+(24, 'Verrou porte entrée', 'tim', 2, 2,'Verrou de la porte d\'entrée'),
+(25, 'Capteur luminosité extérieur 1', 'tim', 3, 3, 'Capteur de luminosité placé sur la terasse'),
+(26, 'Capteur luminosité extérieur 2', 'tim', 3, 3, 'Capteur de luminosité placé sur la facade'),
+(27, 'Capteur température extérieure', 'tim', 5, 3, 'Capteur de température placé sur la terasse');
 
 -- --------------------------------------------------------
 
@@ -120,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `pseudo`, `mdp`, ) VALUES
+INSERT INTO `users` (`id`, `pseudo`, `mdp`) VALUES
 (53, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (54, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (55, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
