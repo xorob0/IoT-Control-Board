@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `pseudo`, `mdp`, ) VALUES
-(53, 'fabio', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
+(53, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (54, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (55, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
 (56, 'cule', '744fac1636ec2ce82c76744266ef8808286a196b'),
