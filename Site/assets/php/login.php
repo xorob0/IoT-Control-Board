@@ -12,8 +12,8 @@ if(isset($_POST['login']) || isset($_POST['pwd']))
 
 		# Connecting to the Mysql database
 
-		$sql = 'SELECT * FROM users WHERE login = ":login" && pwd = ":pwd" ';
-		$param = array('login' => $_POST['login'], 'pwd' => $pwd);
+		$sql = 'SELECT * FROM users WHERE login = :login && pwd = :pwd' ;
+		$param = array('login' => $login, 'pwd' => $pwd);
 		try
 		{
 			$bdd = new PDO('mysql:host=localhost;dbname=projet', 'root', 'Admin2015');
@@ -25,15 +25,15 @@ if(isset($_POST['login']) || isset($_POST['pwd']))
 
 		$req = $bdd -> prepare($sql);
 
-		$data = $req -> execute($param);
-
+		$req -> execute($param);
+		$data = $req -> fetch();
 
 		if(!empty($data))
 		{ 
 			$_SESSION['connected'] = 1;
 			$_SESSION['id'] = $data['id'];
 			$_SESSION['login'] = $data['login'];
-			header('Location: ../../objects_list.html');
+			header('Location: ../../test.php');
 			}
 		else
 		{
