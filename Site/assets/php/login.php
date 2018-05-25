@@ -1,6 +1,7 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
 session_start();
+
+require_once('modele/MySQL.php');
 
 if(isset($_POST['login']) || isset($_POST['pwd']))
 {
@@ -10,23 +11,15 @@ if(isset($_POST['login']) || isset($_POST['pwd']))
 		$login = htmlspecialchars($_POST['login']);
 		$pwd = sha1($_POST['pwd']);
 
-		# Connecting to the Mysql database
+		// Defining MySQL request
+		$input = array('login' => $login, 'pwd' => $pwd);
+		$sql = 'SELECT * FROM users WHERE login = :login && pwd = :pwd';
 
-		$sql = 'SELECT * FROM users WHERE login = :login && pwd = :pwd' ;
-		$param = array('login' => $login, 'pwd' => $pwd);
-		try
-		{
-			$bdd = new PDO('mysql:host=localhost;dbname=projet', 'root', 'Admin2015');
-		}
-		catch (Exception $e) 
-		{
-			echo '<p> Error connecting to the database, please try again<p> '.$e; //TODO redirect an error page and log error
-		}
+		// Accessing the database
+		$bdd = createBDD();
 
-		$req = $bdd -> prepare($sql);
-
-		$req -> execute($param);
-		$data = $req -> fetch();
+		// Getting the data
+		$data = execReq($bdd, $sql, $input);
 
 		if(!empty($data))
 		{ 
@@ -42,3 +35,4 @@ if(isset($_POST['login']) || isset($_POST['pwd']))
 		}
 	}
 }
+?>

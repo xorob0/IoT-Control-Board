@@ -114,8 +114,8 @@ INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `descripti
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(6) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(15) NOT NULL,
-  `mdp` varchar(150) NOT NULL,
+  `login` varchar(15) NOT NULL,
+  `pwd` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `id_2` (`id`)
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `pseudo`, `mdp`) VALUES
+INSERT INTO `users` (`id`, `login`, `pwd`) VALUES
 (53, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (54, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
 (55, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
