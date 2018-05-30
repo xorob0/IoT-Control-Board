@@ -94,13 +94,13 @@ ALTER TABLE `objects` ADD CONSTRAINT fk_loc FOREIGN KEY (`location`) REFERENCES 
 --
 
 INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES
-(NULL, 'Lampe salon', 'tim', 1, 12, 'Grand lampadaire du salon', 0),                                      
-(NULL, 'Lampe salle de bain', 'tim', 1, 11, 'Lampe principale de la salle de bain', 0),
-(NULL, 'Verrou chambre Tim', 'tim', 2, 11, 'Verrou de la salle de bain', 1),
-(NULL, 'Verrou porte entrée', 'tim', 2, 12,'Verrou de la porte d\'entrée', 0),
-(NULL, 'Capteur luminosité extérieur 1', 'tim', 3, 13, 'Capteur de luminosité placé sur la terasse', 1),
-(NULL, 'Capteur luminosité extérieur 2', 'tim', 3, 13, 'Capteur de luminosité placé sur la facade', 0),
-(NULL, 'Capteur température extérieure', 'tim', 5, 13, 'Capteur de température placé sur la terasse', 1);
+(NULL, 'Lampe salon', 'tim', 1, 2, 'Grand lampadaire du salon', 0),                                      
+(NULL, 'Lampe salle de bain', 'tim', 1, 1, 'Lampe principale de la salle de bain', 0),
+(NULL, 'Verrou chambre Tim', 'tim', 2, 1, 'Verrou de la salle de bain', 1),
+(NULL, 'Verrou porte entrée', 'tim', 2, 2,'Verrou de la porte d\'entrée', 0),
+(NULL, 'Capteur luminosité extérieur 1', 'tim', 3, 3, 'Capteur de luminosité placé sur la terasse', 1),
+(NULL, 'Capteur luminosité extérieur 2', 'tim', 3, 3, 'Capteur de luminosité placé sur la facade', 0),
+(NULL, 'Capteur température extérieure', 'tim', 5, 3, 'Capteur de température placé sur la terasse', 1);
 
 -- --------------------------------------------------------
 
