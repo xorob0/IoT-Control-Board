@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<?php
+	require_once('assets/php/modele/show.php');
+?>
 
 <head>
     <meta charset="utf-8">
@@ -53,17 +56,20 @@
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
                         <div class="form-group">
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Location</button>
-							<div class="dropdown-menu" role="menu">
-							<?php
-								require_once('assets/php/modele/types.php');
-								showTypes();
-							?>
-							</div>
+								<div class="dropdown-menu" role="menu">
+									<?php
+										showLocations();
+									?>
+								</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Type&nbsp;</button>
-                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+								<div class="dropdown-menu" role="menu">
+									<?php
+										showTypes();
+									?>
+								</div>
                             </div>
                         </div>
                         <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/changepwd.php">Add device</button></div>

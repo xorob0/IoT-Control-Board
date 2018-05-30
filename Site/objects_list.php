@@ -2,6 +2,7 @@
 <html>
 <?php
 	session_start();
+	require_once('assets/php/modele/show.php');
 ?>
 
 <head>
@@ -57,7 +58,6 @@
                         </thead>
                         <tbody>
 							<?php
-								require_once('assets/php/modele/table.php');
 								showObjects();
 							?>
                         </tbody>
