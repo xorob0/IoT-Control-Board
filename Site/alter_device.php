@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php
-	require_once('assets/php/modele/show.php');
-?>
 
 <head>
     <meta charset="utf-8">
@@ -32,8 +29,7 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#">Home</a></li>
                             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Groups&nbsp;</a>
-								<div class="dropdown-menu" role="menu">
-								</div>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                             </li>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
@@ -44,32 +40,42 @@
             <div class="container d-flex hero" style="background-color:#ffffff;padding:0px;">
                 <ul class="list-group">
                     <li class="list-group-item"><a href="settings.php">Settings</a></li>
-                    <li class="list-group-item"><span>Add device</span></li>
-                    <li class="list-group-item"><a href="alter_device.php">Modify device</a></li>
+                    <li class="list-group-item"><span></span><a href="add_device.php">Add device</a></li>
+                    <li class="list-group-item"><span>Modify device</span></li>
                 </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
-                    <h2 class="justify-content-center">Add device</h2>
+                    <h2 class="justify-content-center">Modify device</h2>
+                    <div class="form-group"><form class="form-inline">
+  <div class="form-group">
+     <select  class="form-control" >
+         <option>Option</option>
+         <option>Option2</option>
+      </select>
+  </div>
+</form></div>
                     <form>
                         <div class="d-flex"></div>
                     </form>
-                    <form method="post" action="assets/php/add_device.php">
+                    <form method="post" action="assets/php/changepwd.php">
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
-                        <div class="form-group">
-							<select  class="form-control" name="type" >
-								<?php
-									showTypes()
-								?>
-							</select>
-                        </div>
-                        <div class="form-group">
-							<select  class="form-control" name="location" >
-								<?php
-									showLocations()
-								?>
-							</select>
-                        </div>
-						<div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/add_device.php">Add device</button></div>
+                        <div class="form-group"><form class="form-inline">
+  <div class="form-group">
+     <select  class="form-control" >
+         <option>Option</option>
+         <option>Option2</option>
+      </select>
+  </div>
+</form></div>
+                        <div class="form-group"><form class="form-inline">
+  <div class="form-group">
+     <select  class="form-control" >
+         <option>Option</option>
+         <option>Option2</option>
+      </select>
+  </div>
+</form></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/changepwd.php">Add device</button></div>
                     </form>
                 </div>
             </div>
