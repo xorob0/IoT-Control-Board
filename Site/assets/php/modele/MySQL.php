@@ -20,4 +20,11 @@
     	$req -> execute($input);
 		return $req -> fetch();
 	}
+
+	function execReqAll($bdd, $sql, $input)
+	{
+		$req = $bdd -> prepare($sql);
+    	$req -> execute($input);
+		return $req -> fetchAll();
+	}
 ?>
