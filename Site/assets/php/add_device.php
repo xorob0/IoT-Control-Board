@@ -44,7 +44,7 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 			echo '<script>alert("Please enter all the fields");</script>';
 		}
 
-		header('Location: ../../settings.php');
+		header('Location: ../../objects_list.php');
 	}
 }
 ?>
