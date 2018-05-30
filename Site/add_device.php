@@ -30,10 +30,6 @@
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#">Home</a></li>
                             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Groups&nbsp;</a>
 								<div class="dropdown-menu" role="menu">
-							<?php
-								require_once('assets/php/modele/types.php');
-								showTypes();
-							?>
 								</div>
                             </li>
                         </ul>
@@ -57,7 +53,12 @@
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
                         <div class="form-group">
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Location</button>
-                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+							<div class="dropdown-menu" role="menu">
+							<?php
+								require_once('assets/php/modele/types.php');
+								showTypes();
+							?>
+							</div>
                             </div>
                         </div>
                         <div class="form-group">
