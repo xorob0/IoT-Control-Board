@@ -3,7 +3,6 @@ session_start();
 
 require_once('modele/MySQL.php');
 
-
 if(isset($_POST['currentpassword']) && isset($_SESSION['id']))
 {
 	if(!empty($_POST['currentpassword']) && !empty($_SESSION['id']))
