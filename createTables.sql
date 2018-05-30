@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet`
 --
-CREATE DATABASE IF NOT EXISTS `projet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `projet` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `projet`;
 
 -- --------------------------------------------------------
@@ -29,10 +29,10 @@ USE `projet`;
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `id` int(5) UNIQUE NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `categories`
@@ -53,10 +53,10 @@ INSERT INTO `categories` (`id`, `type`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `locations` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `id` int(5) UNIQUE NOT NULL AUTO_INCREMENT,
   `location` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `locations`
@@ -80,31 +80,27 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `name` varchar(40) NOT NULL,
   `owner` varchar(50) NOT NULL,
   `category` int(5) NOT NULL,
-  `location` varchar(20) NOT NULL,
+  `location` int(5) NOT NULL,
   `description` varchar(400) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY fk_cat(category)
-  REFERENCES categories(id)
-  ON UPDATE CASCADE
-  ON DELETE RESTRICT,
-  FOREIGN KEY fk_loc(location)
-  REFERENCES locations(id)
-  ON UPDATE CASCADE
-  ON DELETE RESTRICT
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+  `state` bool,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+ALTER TABLE `objects` ADD CONSTRAINT fk_cat FOREIGN KEY (`category`) REFERENCES categories(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `objects` ADD CONSTRAINT fk_loc FOREIGN KEY (`location`) REFERENCES locations(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 --
 -- Contenu de la table `objects`
 --
 
-INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`) VALUES
-(21, 'Lampe salon', 'tim', 1, 2, 'Grand lampadaire du salon'),
-(22, 'Lampe salle de bain', 'tim', 1, 1, 'Lampe principale de la salle de bain'),
-(23, 'Verrou chambre Tim', 'tim', 2, 1, 'Verrou de la salle de bain'),
-(24, 'Verrou porte entrée', 'tim', 2, 2,'Verrou de la porte d\'entrée'),
-(25, 'Capteur luminosité extérieur 1', 'tim', 3, 3, 'Capteur de luminosité placé sur la terasse'),
-(26, 'Capteur luminosité extérieur 2', 'tim', 3, 3, 'Capteur de luminosité placé sur la facade'),
-(27, 'Capteur température extérieure', 'tim', 5, 3, 'Capteur de température placé sur la terasse');
+INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES
+(21, 'Lampe salon', 'tim', 1, 12, 'Grand lampadaire du salon', 0),                                      
+(22, 'Lampe salle de bain', 'tim', 1, 11, 'Lampe principale de la salle de bain', 0),
+(23, 'Verrou chambre Tim', 'tim', 2, 11, 'Verrou de la salle de bain', 1),
+(24, 'Verrou porte entrée', 'tim', 2, 12,'Verrou de la porte d\'entrée', 0),
+(25, 'Capteur luminosité extérieur 1', 'tim', 3, 13, 'Capteur de luminosité placé sur la terasse', 1),
+(26, 'Capteur luminosité extérieur 2', 'tim', 3, 13, 'Capteur de luminosité placé sur la facade', 0),
+(27, 'Capteur température extérieure', 'tim', 5, 13, 'Capteur de température placé sur la terasse', 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `id_2` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `users`
