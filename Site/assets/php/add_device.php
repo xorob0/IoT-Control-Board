@@ -31,7 +31,8 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 		{ 
 			// Defining MySQL request
 			$input = array('name' => $name, 'owner' => $owner, 'category' => $type[id], 'location' => $loc[id], 'description' => $description);
-			$sql = 'INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES (NULL, :name, :owner, :category, :location, ,:description, 0);';
+			print_r($input);
+			$sql = 'INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES (NULL, :name, :owner, :category, :location, :description, 0);';
 
 			// Getting the data
 			execReq($bdd, $sql, $input);
