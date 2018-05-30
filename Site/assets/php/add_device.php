@@ -18,7 +18,7 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 		$inputtype = array('type_string' => $type_string);
 		$inputloc = array('loc' => $loc_string);
 		$sqltype = 'SELECT * FROM categories WHERE type = :type_string';
-		$sqlloc = 'SELECT * FROM locations WHERE locations = :loc_string';
+		$sqlloc = 'SELECT * FROM locations WHERE location = :loc_string';
 
 		// Accessing the database
 		$bdd = createBDD();
@@ -44,7 +44,7 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 			echo '<script>alert("Please enter all the fields");</script>';
 		}
 
-		header('Location: ../../objects_list.php');
+		/* header('Location: ../../objects_list.php'); */
 	}
 }
 ?>
