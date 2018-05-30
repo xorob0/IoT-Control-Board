@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-	/* require_once(assets/php/modele/table.php) */
+	session_start();
 ?>
 
 <head>
@@ -32,16 +32,15 @@
                     <div class="collapse navbar-collapse"
                         id="navcol-1">
                         <ul class="nav navbar-nav">
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="settings.php">Settings</a></li>
                             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Groups&nbsp;</a>
                                 <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                             </li>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
                             <div class="form-group"><label for="search-field"></label></div>
-					</form><span class="navbar-text"><a href="#">
+					</form><span class="navbar-text"><a href="settings.php">
 						<?php
-							session_start();
 							echo $_SESSION['login'];
 						?>
 					</a></span></div>
@@ -57,20 +56,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Switch Bedroom</td>
-                                <td><button class="btn btn-primary" type="button" style="background-color:rgb(93,224,106);" action="buttonClick.js">On</button></td>
-                            </tr>
-                            <tr>
-                                <td>Lock Bedroom</td>
-                                <td><button class="btn btn-primary" type="button" style="background-color:rgb(255,15,0);">Locked</button></td>
-                            </tr>
+							<?php
+								require_once('assets/php/modele/table.php');
+								showObjects();
+							?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+	
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
