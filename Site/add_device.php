@@ -55,14 +55,14 @@
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
                         <div class="form-group">
-							<select  class="form-control" >
+							<select  class="form-control" name="type" >
 								<?php
 									showTypes()
 								?>
 							</select>
                         </div>
                         <div class="form-group">
-							<select  class="form-control" >
+							<select  class="form-control" name="location" >
 								<?php
 									showLocations()
 								?>
