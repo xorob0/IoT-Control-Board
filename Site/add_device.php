@@ -55,24 +55,20 @@
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
                         <div class="form-group">
-                            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Location</button>
-								<div class="dropdown-menu" role="menu">
-									<?php
-										showLocations();
-									?>
-								</div>
-                            </div>
+							<select  class="form-control" >
+								<?php
+									showTypes()
+								?>
+							</select>
                         </div>
                         <div class="form-group">
-                            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Type&nbsp;</button>
-								<div class="dropdown-menu" role="menu">
-									<?php
-										showTypes();
-									?>
-								</div>
-                            </div>
+							<select  class="form-control" >
+								<?php
+									showLocations()
+								?>
+							</select>
                         </div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/changepwd.php">Add device</button></div>
+						<div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/add_device.php">Add device</button></div>
                     </form>
                 </div>
             </div>
