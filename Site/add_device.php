@@ -51,7 +51,7 @@
                     <form>
                         <div class="d-flex"></div>
                     </form>
-                    <form method="post" action="assets/php/changepwd.php">
+                    <form method="post" action="assets/php/add_device.php">
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
                         <div class="form-group">
