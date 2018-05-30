@@ -32,19 +32,19 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(5) UNIQUE NOT NULL AUTO_INCREMENT,
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Contenu de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `type`) VALUES
-(1, 'lightning'),
-(2, 'lock'),
-(3, 'light_sensor'),
-(4, 'humidity_sensor'),
-(5, 'temp_sensor'),
-(6, 'other');
+(NULL, 'lightning'),
+(NULL, 'lock'),
+(NULL, 'light_sensor'),
+(NULL, 'humidity_sensor'),
+(NULL, 'temp_sensor'),
+(NULL, 'other');
 
 -- --------------------------------------------------------
 
@@ -56,19 +56,19 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `id` int(5) UNIQUE NOT NULL AUTO_INCREMENT,
   `location` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Contenu de la table `locations`
 --
 
 INSERT INTO `locations` (`id`, `location`) VALUES
-(11, 'Bathroom'),
-(12, 'Living room'),
-(13, 'Outside'),
-(14, 'Bedroom Tim'),
-(15, 'Bedroom Parents'),
-(16, 'Other');
+(NULL, 'Bathroom'),
+(NULL, 'Living room'),
+(NULL, 'Outside'),
+(NULL, 'Bedroom Tim'),
+(NULL, 'Bedroom Parents'),
+(NULL, 'Other');
 -- --------------------------------------------------------
 
 --
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `description` varchar(400) DEFAULT NULL,
   `state` bool,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 ALTER TABLE `objects` ADD CONSTRAINT fk_cat FOREIGN KEY (`category`) REFERENCES categories(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE `objects` ADD CONSTRAINT fk_loc FOREIGN KEY (`location`) REFERENCES locations(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
@@ -94,13 +94,13 @@ ALTER TABLE `objects` ADD CONSTRAINT fk_loc FOREIGN KEY (`location`) REFERENCES 
 --
 
 INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES
-(21, 'Lampe salon', 'tim', 1, 12, 'Grand lampadaire du salon', 0),                                      
-(22, 'Lampe salle de bain', 'tim', 1, 11, 'Lampe principale de la salle de bain', 0),
-(23, 'Verrou chambre Tim', 'tim', 2, 11, 'Verrou de la salle de bain', 1),
-(24, 'Verrou porte entrée', 'tim', 2, 12,'Verrou de la porte d\'entrée', 0),
-(25, 'Capteur luminosité extérieur 1', 'tim', 3, 13, 'Capteur de luminosité placé sur la terasse', 1),
-(26, 'Capteur luminosité extérieur 2', 'tim', 3, 13, 'Capteur de luminosité placé sur la facade', 0),
-(27, 'Capteur température extérieure', 'tim', 5, 13, 'Capteur de température placé sur la terasse', 1);
+(NULL, 'Lampe salon', 'tim', 1, 12, 'Grand lampadaire du salon', 0),                                      
+(NULL, 'Lampe salle de bain', 'tim', 1, 11, 'Lampe principale de la salle de bain', 0),
+(NULL, 'Verrou chambre Tim', 'tim', 2, 11, 'Verrou de la salle de bain', 1),
+(NULL, 'Verrou porte entrée', 'tim', 2, 12,'Verrou de la porte d\'entrée', 0),
+(NULL, 'Capteur luminosité extérieur 1', 'tim', 3, 13, 'Capteur de luminosité placé sur la terasse', 1),
+(NULL, 'Capteur luminosité extérieur 2', 'tim', 3, 13, 'Capteur de luminosité placé sur la facade', 0),
+(NULL, 'Capteur température extérieure', 'tim', 5, 13, 'Capteur de température placé sur la terasse', 1);
 
 -- --------------------------------------------------------
 
@@ -115,20 +115,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `id_2` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
 -- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `pwd`) VALUES
-(53, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
-(54, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
-(55, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
-(56, 'cule', '744fac1636ec2ce82c76744266ef8808286a196b'),
-(57, 'aqwedc', 'df51e37c269aa94d38f93e537bf6e2020b21406c'),
-(58, 'test3', 'c7df8792565c712b643dd4ea9ec1885efaa0724a'),
-(59, 'vfvfv', '70c881d4a26984ddce795f6f71817c9cf4480e79');
+(NULL, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
+(NULL, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
+(NULL, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
+(NULL, 'cule', '744fac1636ec2ce82c76744266ef8808286a196b'),
+(NULL, 'aqwedc', 'df51e37c269aa94d38f93e537bf6e2020b21406c'),
+(NULL, 'test3', 'c7df8792565c712b643dd4ea9ec1885efaa0724a'),
+(NULL, 'vfvfv', '70c881d4a26984ddce795f6f71817c9cf4480e79');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
