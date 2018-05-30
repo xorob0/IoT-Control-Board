@@ -18,7 +18,6 @@
 	{
 		$req = $bdd -> prepare($sql);
     	$req -> execute($input);
-    	$data = $req -> fetch();
-		return $data;
+		return $req -> fetch();
 	}
 ?>

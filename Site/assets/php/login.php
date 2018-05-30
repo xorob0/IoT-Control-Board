@@ -27,7 +27,7 @@ if(isset($_POST['login']) || isset($_POST['pwd']))
 			$_SESSION['id'] = $data['id'];
 			$_SESSION['login'] = $data['login'];
 			header('Location: ../../objects_list.php');
-			}
+		}
 		else
 		{
 			session_destroy();
