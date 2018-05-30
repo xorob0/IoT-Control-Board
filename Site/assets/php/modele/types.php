@@ -1,6 +1,6 @@
 <?php
 require_once('MySQL.php');
-function showObjects()
+function showTypes()
 {
 	$bdd = createBDD();
 	$sql = 'SELECT * FROM categories';
