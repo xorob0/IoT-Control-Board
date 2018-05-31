@@ -13,7 +13,6 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 		$type_string = htmlspecialchars($_POST['type']);
 		$loc_string = htmlspecialchars($_POST['location']);
 		$device_string = htmlspecialchars($_POST['device']);
-		echo "test";
 
 		// Defining MySQL request
 		$inputdevice = array('device_string' => $device_string);
