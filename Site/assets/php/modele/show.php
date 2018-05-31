@@ -86,4 +86,16 @@ function showOwnedDevicesOptions()
 		echo '<option>' . $i[name] . '</options>';
 	}
 }
+
+function showUsers()
+{
+	$bdd = createBDD();
+	$sql = 'SELECT login FROM users';
+	$data = execReqAll($bdd, $sql);
+
+	foreach ($data) 
+	{
+		echo '<option>' . $data . '</options>';
+	}
+}
 ?>
