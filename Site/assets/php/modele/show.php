@@ -2,17 +2,11 @@
 require_once('MySQL.php');
 function showObjects()
 {
-	echo "\n";
-
 	if(isset($_SESSION['id']))
 	{
 		if(!empty($_SESSION['id']))
 		{
-			$id = $_SESSION['id'])
-			$bdd = createBDD();
-			$input = array('user' => $id);
-			$sql = 'SELECT * FROM objects WHERE id IN (SELECT id_obj FROM auth WHERE id_user = :user);';
-			$data = execReqAll($bdd, $sql, $input);
+			$data = getDevices();
 		
 			foreach ($data as $i) 
 			{
@@ -43,15 +37,7 @@ function showObjects()
 						}
 						break;
 					}
-				echo "								<tr>
-											<td>
-												" . $i['name'] . "
-											</td>
-											<td>
-												<button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button>
-											</td>
-										</tr>
-		";
+				echo "<tr><td>" . $i['name'] . "</td><td><button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button></td></tr>";
 			}
 		}
 	}

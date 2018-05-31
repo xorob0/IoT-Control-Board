@@ -27,4 +27,20 @@
     	$req -> execute($input);
 		return $req -> fetchAll();
 	}
+	
+	function getDevices()
+	{
+		if(isset($_SESSION['id']))
+		{
+			if(!empty($_SESSION['id']))
+			{
+				$id = $_SESSION['id'];
+				$bdd = createBDD();
+				$input = array('user' => $id);
+				$sql = 'SELECT * FROM objects WHERE id IN (SELECT id_obj FROM auth WHERE id_user = :user)';
+				$data = execReqAll($bdd, $sql, $input);
+				return $data;
+			}
+		}
+	}
 ?>

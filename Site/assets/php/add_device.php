@@ -3,16 +3,16 @@ session_start();
 
 require_once('modele/MySQL.php');
 
-if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']) && isset($_POST['location']) && isset($_SESSION['login']))
+if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']) && isset($_POST['location']) && isset($_SESSION['id']))
 {
-	if(!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['type']) && !empty($_POST['location']) && !empty($_SESSION['login']))
+	if(!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['type']) && !empty($_POST['location']) && !empty($_SESSION['id']))
 	{
 		// Defining variables
 		$name = htmlspecialchars($_POST['name']);
 		$description = htmlspecialchars($_POST['description']);
 		$type_string = htmlspecialchars($_POST['type']);
 		$loc_string = htmlspecialchars($_POST['location']);
-		$owner = htmlspecialchars($_SESSION['login']);
+		$owner = $_SESSION['id'];
 
 		// Defining MySQL request
 		$inputtype = array('type_string' => $type_string);
@@ -31,11 +31,18 @@ if(isset($_POST['name']) && isset($_POST['description']) && isset($_POST['type']
 		{ 
 			// Defining MySQL request
 			$input = array('name' => $name, 'owner' => $owner, 'category' => $type[id], 'location' => $loc[id], 'description' => $description);
-			print_r($input);
 			$sql = 'INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES (NULL, :name, :owner, :category, :location, :description, 0);';
 
 			// Getting the data
 			execReq($bdd, $sql, $input);
+
+
+			// The owner has to have an access to the device
+			$inputauth = array('id' => $owner);
+			$sqlauth = 'INSERT INTO `auth` (`id_user`, `id_obj`) VALUES (:id, LAST_INSERT_ID());';
+
+			// Getting the data
+			execReq($bdd, $sqlauth, $inputauth);
 
 			// Redirect to the settings
 			echo '<script>alert("Device added successfully");</script>';
