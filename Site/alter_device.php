@@ -51,7 +51,7 @@
                     <h2 class="justify-content-center">Modify device</h2>
                     <form method="post" action="assets/php/alter_device.php">
   <div class="form-group">
-     <select  class="form-control" >
+     <select  class="form-control" name="device" >
 		<?php
 		showDevicesOptions()
 		?>
