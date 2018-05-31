@@ -75,4 +75,17 @@ function showLocations()
 		echo '<option>' . $i[location] . '</options>';
 	}
 }
+
+function showDevicesOptions()
+{
+	$bdd = createBDD();
+	$sql = 'SELECT * FROM objects';
+	$data = execReqAll($bdd, $sql);
+	/* print_r($data); */
+
+	foreach ($data as $i) 
+	{
+		echo '<option>' . $i[name] . '</options>';
+	}
+}
 ?>

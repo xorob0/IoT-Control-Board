@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+	require_once('assets/php/modele/show.php');
+?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,36 +49,30 @@
                 </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
                     <h2 class="justify-content-center">Modify device</h2>
-                    <div class="form-group"><form class="form-inline">
+                    <form method="post" action="assets/php/alter_device.php">
   <div class="form-group">
      <select  class="form-control" >
-         <option>Option</option>
-         <option>Option2</option>
+		<?php
+		showDevicesOptions()
+		?>
       </select>
   </div>
-</form></div>
-                    <form>
-                        <div class="d-flex"></div>
-                    </form>
-                    <form method="post" action="assets/php/changepwd.php">
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
                         <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"></div>
-                        <div class="form-group"><form class="form-inline">
-  <div class="form-group">
-     <select  class="form-control" >
-         <option>Option</option>
-         <option>Option2</option>
-      </select>
-  </div>
-</form></div>
-                        <div class="form-group"><form class="form-inline">
-  <div class="form-group">
-     <select  class="form-control" >
-         <option>Option</option>
-         <option>Option2</option>
-      </select>
-  </div>
-</form></div>
+                        <div class="form-group">
+							<select  class="form-control" name="type" >
+								<?php
+									showTypes()
+								?>
+							</select>
+                        </div>
+                        <div class="form-group">
+							<select  class="form-control" name="location" >
+								<?php
+									showLocations()
+								?>
+							</select>
+                        </div>
                         <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/changepwd.php">Add device</button></div>
                     </form>
                 </div>
