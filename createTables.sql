@@ -130,6 +130,35 @@ INSERT INTO `users` (`id`, `login`, `pwd`) VALUES
 (NULL, 'test3', 'c7df8792565c712b643dd4ea9ec1885efaa0724a'),
 (NULL, 'vfvfv', '70c881d4a26984ddce795f6f71817c9cf4480e79');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Structure de la table `auth`
+--
+
+CREATE TABLE IF NOT EXISTS `auth` (
+  `id_user` int(6) NOT NULL,
+  `id_obj` int(5) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `auth` ADD CONSTRAINT fk_usr FOREIGN KEY (`id_user`) REFERENCES users(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `auth` ADD CONSTRAINT fk_loc FOREIGN KEY (`id_obj`) REFERENCES objects(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+--
+-- Contenu de la table `auth`
+--
+
+INSERT INTO `auth` (`id_user`, `id_obj`) VALUES
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+(1,6),
+(1,7),
+(2,1),
+(2,2),
+(2,3),
+(2,4),
+(2,5),
+(2,1)
