@@ -4,49 +4,56 @@ function showObjects()
 {
 	echo "\n";
 
-	$bdd = createBDD();
-	$sql = 'SELECT * FROM objects';
-	$data = execReqAll($bdd, $sql);
-	/* print_r($data); */
-
-	foreach ($data as $i) 
+	if(isset($_SESSION['id']))
 	{
-			switch ($i['category'])
+		if(!empty($_SESSION['id']))
+		{
+			$id = $_SESSION['id'])
+			$bdd = createBDD();
+			$input = array('user' => $id);
+			$sql = 'SELECT * FROM objects WHERE id IN (SELECT id_obj FROM auth WHERE id_user = :user);';
+			$data = execReqAll($bdd, $sql, $input);
+		
+			foreach ($data as $i) 
 			{
-			case 2:
-				if ($i['state'] = 0)
-				{
-					$color = '93,224,106';
-					$text = 'Locked';
-				}
-				else
-				{
-					$color = '255,15,0';
-					$text = 'Unlocked';
-				}
-				break;
-			default:
-				if ($i['state'] = 0)
-				{
-					$color = '255,15,0';
-					$text = 'Off';
-				}
-				else
-				{
-					$color = '93,224,106';
-					$text = 'On';
-				}
-				break;
+					switch ($i['category'])
+					{
+					case 2:
+						if ($i['state'] = 0)
+						{
+							$color = '93,224,106';
+							$text = 'Locked';
+						}
+						else
+						{
+							$color = '255,15,0';
+							$text = 'Unlocked';
+						}
+						break;
+					default:
+						if ($i['state'] = 0)
+						{
+							$color = '255,15,0';
+							$text = 'Off';
+						}
+						else
+						{
+							$color = '93,224,106';
+							$text = 'On';
+						}
+						break;
+					}
+				echo "								<tr>
+											<td>
+												" . $i['name'] . "
+											</td>
+											<td>
+												<button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button>
+											</td>
+										</tr>
+		";
 			}
-		echo "								<tr>
-									<td>
-										" . $i['name'] . "
-									</td>
-									<td>
-										<button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button>
-									</td>
-								</tr>
-";
+		}
 	}
 }
 
