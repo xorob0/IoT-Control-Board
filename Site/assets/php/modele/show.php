@@ -48,7 +48,6 @@ function showTypes()
 	$bdd = createBDD();
 	$sql = 'SELECT * FROM categories';
 	$data = execReqAll($bdd, $sql);
-	/* print_r($data); */
 
 	foreach ($data as $i) 
 	{
@@ -61,7 +60,6 @@ function showLocations()
 	$bdd = createBDD();
 	$sql = 'SELECT * FROM locations';
 	$data = execReqAll($bdd, $sql);
-	/* print_r($data); */
 
 	foreach ($data as $i) 
 	{
@@ -71,10 +69,17 @@ function showLocations()
 
 function showDevicesOptions()
 {
-	$bdd = createBDD();
-	$sql = 'SELECT * FROM objects';
-	$data = execReqAll($bdd, $sql);
-	/* print_r($data); */
+	$data = getDevices();
+
+	foreach ($data as $i) 
+	{
+		echo '<option>' . $i[name] . '</options>';
+	}
+}
+
+function showOwnedDevicesOptions()
+{
+	$data = getOwnedDevices();
 
 	foreach ($data as $i) 
 	{

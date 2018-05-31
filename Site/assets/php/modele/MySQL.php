@@ -43,4 +43,20 @@
 			}
 		}
 	}
+
+	function getOwnedDevices()
+	{
+		if(isset($_SESSION['id']))
+		{
+			if(!empty($_SESSION['id']))
+			{
+				$id = $_SESSION['id'];
+				$bdd = createBDD();
+				$input = array('user' => $id);
+				$sql = 'SELECT * FROM objects WHERE owner = :user)';
+				$data = execReqAll($bdd, $sql, $input);
+				return $data;
+			}
+		}
+	}
 ?>
