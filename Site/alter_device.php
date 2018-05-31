@@ -73,7 +73,7 @@
 								?>
 							</select>
                         </div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/changepwd.php">Add device</button></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Add device</button></div>
                     </form>
                 </div>
             </div>
