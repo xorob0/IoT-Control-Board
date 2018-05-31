@@ -2,44 +2,38 @@
 require_once('MySQL.php');
 function showObjects()
 {
-	if(isset($_SESSION['id']))
+	$data = getDevices();
+
+	foreach ($data as $i) 
 	{
-		if(!empty($_SESSION['id']))
-		{
-			$data = getDevices();
-		
-			foreach ($data as $i) 
+			switch ($i['category'])
 			{
-					switch ($i['category'])
-					{
-					case 2:
-						if ($i['state'] = 0)
-						{
-							$color = '93,224,106';
-							$text = 'Locked';
-						}
-						else
-						{
-							$color = '255,15,0';
-							$text = 'Unlocked';
-						}
-						break;
-					default:
-						if ($i['state'] = 0)
-						{
-							$color = '255,15,0';
-							$text = 'Off';
-						}
-						else
-						{
-							$color = '93,224,106';
-							$text = 'On';
-						}
-						break;
-					}
-				echo "<tr><td>" . $i['name'] . "</td><td><button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button></td></tr>";
+			case 2:
+				if ($i['state'] = 0)
+				{
+					$color = '93,224,106';
+					$text = 'Locked';
+				}
+				else
+				{
+					$color = '255,15,0';
+					$text = 'Unlocked';
+				}
+				break;
+			default:
+				if ($i['state'] = 0)
+				{
+					$color = '255,15,0';
+					$text = 'Off';
+				}
+				else
+				{
+					$color = '93,224,106';
+					$text = 'On';
+				}
+				break;
 			}
-		}
+		echo "<tr><td>" . $i['name'] . "</td><td><button class=\"btn btn-primary\" type=\"button\" style=\"background-color:rgb($color)\" action=\"buttonClick.js\">$text</button></td></tr>";
 	}
 }
 
@@ -51,7 +45,7 @@ function showTypes()
 
 	foreach ($data as $i) 
 	{
-		echo '<option>' . $i[type] . '</options>';
+		echo '<option>' . $i['type'] . '</options>';
 	}
 }
 
@@ -63,7 +57,7 @@ function showLocations()
 
 	foreach ($data as $i) 
 	{
-		echo '<option>' . $i[location] . '</options>';
+		echo '<option>' . $i['location'] . '</options>';
 	}
 }
 
@@ -73,17 +67,18 @@ function showDevicesOptions()
 
 	foreach ($data as $i) 
 	{
-		echo '<option>' . $i[name] . '</options>';
+		echo '<option>' . $i['name'] . '</options>';
 	}
 }
 
 function showOwnedDevicesOptions()
 {
 	$data = getOwnedDevices();
+	pri
 
 	foreach ($data as $i) 
 	{
-		echo '<option>' . $i[name] . '</options>';
+		echo '<option>' . $i['name'] . '</options>';
 	}
 }
 
@@ -93,9 +88,9 @@ function showUsers()
 	$sql = 'SELECT login FROM users';
 	$data = execReqAll($bdd, $sql);
 
-	foreach ($data) 
+	foreach ($data as $i) 
 	{
-		echo '<option>' . $data . '</options>';
+		echo '<option>' . $i['login'] . '</options>';
 	}
 }
 ?>

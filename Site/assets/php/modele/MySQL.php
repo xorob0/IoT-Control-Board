@@ -53,7 +53,7 @@
 				$id = $_SESSION['id'];
 				$bdd = createBDD();
 				$input = array('user' => $id);
-				$sql = 'SELECT * FROM objects WHERE owner = :user)';
+				$sql = 'SELECT * FROM objects WHERE owner = :user;';
 				$data = execReqAll($bdd, $sql, $input);
 				return $data;
 			}
