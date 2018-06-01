@@ -14,7 +14,7 @@
   <div class="form-group">
      <select  class="form-control" name="device" >
 		<?php
-		showDevicesOptions()
+		showOwnedDevicesOptions()
 		?>
       </select>
   </div>
