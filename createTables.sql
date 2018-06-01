@@ -76,9 +76,9 @@ INSERT INTO `locations` (`id`, `location`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `objects` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) NOT NULL,
-  `owner` varchar(50) NOT NULL,
+  `id` int(5) UNIQUE NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) UNIQUE NOT NULL,
+  `owner` int(6) NOT NULL,
   `category` int(5) NOT NULL,
   `location` int(5) NOT NULL,
   `description` varchar(400) DEFAULT NULL,
@@ -88,19 +88,20 @@ CREATE TABLE IF NOT EXISTS `objects` (
 
 ALTER TABLE `objects` ADD CONSTRAINT fk_cat FOREIGN KEY (`category`) REFERENCES categories(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE `objects` ADD CONSTRAINT fk_loc FOREIGN KEY (`location`) REFERENCES locations(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `objects` ADD CONSTRAINT fk_own FOREIGN KEY (`owner`) REFERENCES users(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 --
 -- Contenu de la table `objects`
 --
 
 INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES
-(NULL, 'Lampe salon', 'tim', 1, 2, 'Grand lampadaire du salon', 0),                                      
-(NULL, 'Lampe salle de bain', 'tim', 1, 1, 'Lampe principale de la salle de bain', 0),
-(NULL, 'Verrou chambre Tim', 'tim', 2, 1, 'Verrou de la salle de bain', 1),
-(NULL, 'Verrou porte entrée', 'tim', 2, 2,'Verrou de la porte d\'entrée', 0),
-(NULL, 'Capteur luminosité extérieur 1', 'tim', 3, 3, 'Capteur de luminosité placé sur la terasse', 1),
-(NULL, 'Capteur luminosité extérieur 2', 'tim', 3, 3, 'Capteur de luminosité placé sur la facade', 0),
-(NULL, 'Capteur température extérieure', 'tim', 5, 3, 'Capteur de température placé sur la terasse', 1);
+(NULL, 'Lampe salon', 1, 1, 2, 'Grand lampadaire du salon', 0),                                      
+(NULL, 'Lampe salle de bain', 1, 1, 1, 'Lampe principale de la salle de bain', 0),
+(NULL, 'Verrou chambre Tim', 1, 2, 1, 'Verrou de la salle de bain', 1),
+(NULL, 'Verrou porte entrée', 1, 2, 2,'Verrou de la porte d\'entrée', 0),
+(NULL, 'Capteur luminosité extérieur 1', 1, 3, 3, 'Capteur de luminosité placé sur la terasse', 1),
+(NULL, 'Capteur luminosité extérieur 2', 1, 3, 3, 'Capteur de luminosité placé sur la facade', 0),
+(NULL, 'Capteur température extérieure', 1, 5, 3, 'Capteur de température placé sur la terasse', 1);
 
 -- --------------------------------------------------------
 
@@ -109,12 +110,10 @@ INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `descripti
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(6) NOT NULL AUTO_INCREMENT,
-  `login` varchar(15) NOT NULL,
+  `id` int(6) UNIQUE NOT NULL AUTO_INCREMENT,
+  `login` varchar(15) UNIQUE NOT NULL,
   `pwd` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `id_2` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 --
@@ -142,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `auth` (
 
 
 ALTER TABLE `auth` ADD CONSTRAINT fk_usr FOREIGN KEY (`id_user`) REFERENCES users(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
-ALTER TABLE `auth` ADD CONSTRAINT fk_loc FOREIGN KEY (`id_obj`) REFERENCES objects(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
+ALTER TABLE `auth` ADD CONSTRAINT fk_obj FOREIGN KEY (`id_obj`) REFERENCES objects(`id`) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 --
 -- Contenu de la table `auth`
