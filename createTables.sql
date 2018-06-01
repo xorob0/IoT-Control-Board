@@ -94,14 +94,14 @@ ALTER TABLE `objects` ADD CONSTRAINT fk_own FOREIGN KEY (`owner`) REFERENCES use
 -- Contenu de la table `objects`
 --
 
-INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES
-(NULL, 'Lampe salon', 1, 1, 2, 'Grand lampadaire du salon', 0),                                      
-(NULL, 'Lampe salle de bain', 1, 1, 1, 'Lampe principale de la salle de bain', 0),
-(NULL, 'Verrou chambre Tim', 1, 2, 1, 'Verrou de la salle de bain', 1),
-(NULL, 'Verrou porte entrée', 1, 2, 2,'Verrou de la porte d\'entrée', 0),
-(NULL, 'Capteur luminosité extérieur 1', 1, 3, 3, 'Capteur de luminosité placé sur la terasse', 1),
-(NULL, 'Capteur luminosité extérieur 2', 1, 3, 3, 'Capteur de luminosité placé sur la facade', 0),
-(NULL, 'Capteur température extérieure', 1, 5, 3, 'Capteur de température placé sur la terasse', 1);
+/* INSERT INTO `objects` (`id`, `name`, `owner`, `category`, `location`, `description`, `state`) VALUES */
+/* (NULL, 'Lampe salon', 1, 1, 2, 'Grand lampadaire du salon', 0), */                                      
+/* (NULL, 'Lampe salle de bain', 1, 1, 1, 'Lampe principale de la salle de bain', 0), */
+/* (NULL, 'Verrou chambre Tim', 1, 2, 1, 'Verrou de la salle de bain', 1), */
+/* (NULL, 'Verrou porte entrée', 1, 2, 2,'Verrou de la porte d\'entrée', 0), */
+/* (NULL, 'Capteur luminosité extérieur 1', 1, 3, 3, 'Capteur de luminosité placé sur la terasse', 1), */
+/* (NULL, 'Capteur luminosité extérieur 2', 1, 3, 3, 'Capteur de luminosité placé sur la facade', 0), */
+/* (NULL, 'Capteur température extérieure', 1, 5, 3, 'Capteur de température placé sur la terasse', 1); */
 
 -- --------------------------------------------------------
 
@@ -121,13 +121,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pwd`) VALUES
-(NULL, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
-(NULL, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
-(NULL, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'),
-(NULL, 'cule', '744fac1636ec2ce82c76744266ef8808286a196b'),
-(NULL, 'aqwedc', 'df51e37c269aa94d38f93e537bf6e2020b21406c'),
-(NULL, 'test3', 'c7df8792565c712b643dd4ea9ec1885efaa0724a'),
-(NULL, 'vfvfv', '70c881d4a26984ddce795f6f71817c9cf4480e79');
+(0, 'admin', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
+/* (NULL, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'), */
+/* (NULL, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'), */
+/* (NULL, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'), */
+/* (NULL, 'cule', '744fac1636ec2ce82c76744266ef8808286a196b'), */
+/* (NULL, 'aqwedc', 'df51e37c269aa94d38f93e537bf6e2020b21406c'), */
+/* (NULL, 'test3', 'c7df8792565c712b643dd4ea9ec1885efaa0724a'), */
+/* (NULL, 'vfvfv', '70c881d4a26984ddce795f6f71817c9cf4480e79'); */
 
 
 --
@@ -148,16 +149,16 @@ ALTER TABLE `auth` ADD CONSTRAINT fk_obj FOREIGN KEY (`id_obj`) REFERENCES objec
 --
 
 INSERT INTO `auth` (`id_user`, `id_obj`) VALUES
-(1,1),
-(1,2),
-(1,3),
-(1,4),
-(1,5),
-(1,6),
-(1,7),
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,5),
-(2,1)
+/* (1,1), */
+/* (1,2), */
+/* (1,3), */
+/* (1,4), */
+/* (1,5), */
+/* (1,6), */
+/* (1,7), */
+/* (2,1), */
+/* (2,2), */
+/* (2,3), */
+/* (2,4), */
+/* (2,5), */
+/* (2,1) */
