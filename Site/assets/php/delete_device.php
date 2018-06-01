@@ -24,9 +24,11 @@ if(isset($_POST['device']))
 		{ 
 			// Defining MySQL request
 			$input = array('device' => $device[id]);
-			$sql = 'DELETE FROM objects WHERE id = :device';
+			$sqlauth = 'DELETE FROM auth WHERE id_obj = :device;';
+			$sql = 'DELETE FROM objects WHERE id = :device;';
 
 			// Getting the data
+			execReq($bdd, $sqlauth, $input);
 			execReq($bdd, $sql, $input);
 
 			// Redirect to the settings
