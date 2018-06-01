@@ -25,9 +25,13 @@ if(isset($_POST['currentpassword']) && isset($_SESSION['id']))
 		{ 
 			// Defining MySQL request
 			$input = array('id' => $id, 'password' => $password);
+			$sqlauth = 'DELETE FROM auth WHERE id_user = :id;';
+			$sqlobj = 'DELETE FROM objects WHERE owner = :id;';
 			$sql = 'DELETE FROM users WHERE id = :id AND pwd = :password LIMIT 1';
 
 			// Getting the data
+			execReq($bdd, $sqlauth, $input);
+			execReq($bdd, $sqlobj, $input);
 			execReq($bdd, $sql, $input);
 
 			// Redirect to the settings
