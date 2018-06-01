@@ -6,14 +6,9 @@
 	require_once('assets/php/modele/show.php');
 	require_once('assets/php/modele/idCheck.php');
 	include('template.php');
+	include('template_settings.php');
 ?>
 
-            <div class="container d-flex hero" style="background-color:#ffffff;padding:0px;">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="settings.php">Settings</a></li>
-                    <li class="list-group-item"><span>Add device</span></li>
-                    <li class="list-group-item"><a href="alter_device.php">Modify device</a></li>
-                </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
                     <h2 class="justify-content-center">Add device</h2>
                     <form>

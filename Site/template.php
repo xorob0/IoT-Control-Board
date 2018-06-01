@@ -25,6 +25,13 @@
                         id="navcol-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link" href="settings.php">Settings</a></li>
+<?php
+	session_start();
+	if($_SESSION['id'] == 0)
+	{
+		echo '<li class="nav-item" role="presentation"><a class="nav-link" href="add_user.php">Admin Panel</a></li>';
+	}
+?>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
                             <div class="form-group"><label for="search-field"></label></div>
