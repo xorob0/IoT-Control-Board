@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pwd`) VALUES
-(0, 'admin', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'),
+(0, 'admin', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3');
 /* (NULL, 'xorob0', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'), */
 /* (NULL, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'), */
 /* (NULL, 'test2', 'e96d3630bd9534efe09ecc3730488f3de2a6b978'), */
@@ -148,7 +148,7 @@ ALTER TABLE `auth` ADD CONSTRAINT fk_obj FOREIGN KEY (`id_obj`) REFERENCES objec
 -- Contenu de la table `auth`
 --
 
-INSERT INTO `auth` (`id_user`, `id_obj`) VALUES
+/* INSERT INTO `auth` (`id_user`, `id_obj`) VALUES */
 /* (1,1), */
 /* (1,2), */
 /* (1,3), */
