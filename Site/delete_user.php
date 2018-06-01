@@ -10,7 +10,7 @@
 	include('template_admin.php');
 ?>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
-                    <h2 class="justify-content-center">Modify user</h2>
+                    <h2 class="justify-content-center">Delete user</h2>
                     <div class="form-group"><form class="form-inline">
 </form>
 </div>
