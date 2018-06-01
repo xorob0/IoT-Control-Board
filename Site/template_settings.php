@@ -3,6 +3,6 @@
                     <li class="list-group-item"><a href="settings.php">Settings</a></li>
                     <li class="list-group-item"><a href="add_device.php">Add device</a></li>
                     <li class="list-group-item"><a href="alter_device.php">Modify device</a></li>
-                    <li class="list-group-item"><a href="delete.php">Delete device</a></li>
+                    <li class="list-group-item"><a href="delete_device.php">Delete device</a></li>
                     <li class="list-group-item"><a href="rights.php">Rights</a></li>
                 </ul>
