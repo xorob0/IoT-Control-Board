@@ -68,7 +68,7 @@
 							</select>
 						</div>
                         <div class="form-group"><button class="btn btn-primary btn-block" type="submit" >Add right</button></div>
-						<div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/delete_right.php" >Delete right</button></div>
+						<div class="form-group"><button class="btn btn-primary btn-block" type="submit" formaction="assets/php/remove_right.php" >Delete right</button></div>
 					</form>
                     
                 </div>
