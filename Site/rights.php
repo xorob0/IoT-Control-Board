@@ -3,7 +3,11 @@
 
 <?php
 	session_start();
-	require('assets/php/modele/show.php');
+	require_once('assets/php/modele/show.php');
+	if(!isset($_SESSION['id']) || empty($_SESSION['id']))
+	{
+				header('Location: /index.php');
+	}
 ?>
 
 <head>

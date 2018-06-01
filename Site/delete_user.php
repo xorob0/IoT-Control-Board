@@ -4,6 +4,10 @@
 <?php
 	session_start();
 	require_once('assets/php/modele/show.php');
+	if(!isset($_SESSION['id']) || empty($_SESSION['id']))
+	{
+				header('Location: /index.php');
+	}
 ?>
 
 <head>
