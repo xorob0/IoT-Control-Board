@@ -23,10 +23,15 @@ if(isset($_POST['login']))
 		if(!empty($login))
 		{ 
 			// Defining MySQL request
-			$input = array('login' => $login[id]);
-			$sql = 'DELETE FROM users WHERE id = :login';
+			print_r($login);
 
-			// Getting the data
+			$input = array('login' => $login[id]);
+			$sqlauth = 'DELETE FROM auth WHERE id_user = :login;';
+			$sqlobj = 'DELETE FROM objects WHERE owner = :login;';
+			$sql = 'DELETE FROM users WHERE id = :login;';
+
+			execReq($bdd, $sqlobj, $input);
+			execReq($bdd, $sqlauth, $input);
 			execReq($bdd, $sql, $input);
 
 			// Redirect to the settings
