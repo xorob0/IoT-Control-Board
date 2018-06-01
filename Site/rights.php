@@ -50,27 +50,26 @@
                 </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
                     <h2 class="justify-content-center">Rights</h2>
-                    <form method="post" >
+                    <form method="post" action="assets/php/add_right.php" >
                         <div class="form-group">
-  <div class="form-group">
-     <select class="form-control" name="device" >
-		<?php
-		showOwnedDevicesOptions();
-		?>
-      </select>
-  </div>
-</div></form>
-                        <div class="form-group"><form class="form-inline">
-  <div class="form-group">
-     <select class="form-control" name="user" >
-		<?php
-			showUsers();
-		?>
-      </select>
-  </div>
-</form></div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/add_right.php">Add right</button></div>
-                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/delete_right.php">Delete right</button></div>
+							<div class="form-group">
+								<select class="form-control" name="device" >
+									<?php
+										showOwnedDevicesOptions();
+									?>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<select class="form-control" name="user" >
+								<?php
+									showUsers();
+								?>
+							</select>
+						</div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" >Add right</button></div>
+						<div class="form-group"><button class="btn btn-primary btn-block" type="submit" action="assets/php/delete_right.php" >Delete right</button></div>
+					</form>
                     
                 </div>
             </div>

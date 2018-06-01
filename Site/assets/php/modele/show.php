@@ -74,7 +74,6 @@ function showDevicesOptions()
 function showOwnedDevicesOptions()
 {
 	$data = getOwnedDevices();
-	pri
 
 	foreach ($data as $i) 
 	{
