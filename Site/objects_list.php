@@ -3,6 +3,7 @@
 <?php
 	session_start();
 	require_once('assets/php/modele/show.php');
+	require_once('assets/php/modele/idCheck.php');
 ?>
 
 <head>
@@ -34,6 +35,7 @@
                         id="navcol-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link" href="settings.php">Settings</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="assets/php/logout.php">Log Out</a></li>
                             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Groups&nbsp;</a>
                                 <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                             </li>

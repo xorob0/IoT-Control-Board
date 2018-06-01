@@ -4,10 +4,8 @@
 <?php
 	session_start();
 	require_once('assets/php/modele/show.php');
-	if(!isset($_SESSION['id']) || empty($_SESSION['id']) || $_SESSION['id' != 0))
-	{
-				header('Location: /index.php');
-	}
+	require_once('assets/php/modele/idCheck.php');
+	require_once('assets/php/modele/idAdmin.php');
 ?>
 
 <head>
@@ -53,7 +51,7 @@
                     <li class="list-group-item"><span>Modify user</span></li>
                 </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
-                    <h2 class="justify-content-center">Modify user</h2>
+                    <h2 class="justify-content-center">Add user</h2>
                     <form method="post" action="assets/php/add_user.php" >
                         <div class="form-group"><input class="form-control" type="text" name="login" placeholder="Login"></div>
                         <div class="form-group"><input class="form-control" type="password" name="pwd" placeholder="Password"></div>
