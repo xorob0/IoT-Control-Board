@@ -7,13 +7,8 @@
 	require_once('assets/php/modele/idCheck.php');
 	require_once('assets/php/modele/idAdmin.php');
 	include('template.php');
+	include('template_admin.php');
 ?>
-            <div class="container d-flex hero" style="background-color:#ffffff;padding:0px;">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="settings.php">Add User</a></li>
-                    <li class="list-group-item"><span></span><a href="add_device.php">Delete user</a></li>
-                    <li class="list-group-item"><span>Modify user</span></li>
-                </ul>
                 <div class="d-flex flex-column flex-fill" style="padding:10px;">
                     <h2 class="justify-content-center">Add user</h2>
                     <form method="post" action="assets/php/add_user.php" >
